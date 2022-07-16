@@ -68,6 +68,5 @@ rm script.sh
 
 # Install runner service as Root and start the runner service
 cd actions-runner
-./run.sh
 ./svc.sh install
 ./svc.sh start
