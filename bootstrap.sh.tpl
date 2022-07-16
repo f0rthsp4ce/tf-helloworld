@@ -1,6 +1,6 @@
 #!/bin/bash
-#set -Eeuo pipefail
-set -Eeuxo pipefail
+set -Eeuo pipefail
+#set -Eeuxo pipefail
 
 # Add non-root user non-interactively if not present
 # Use the --gecos option to skip the chfn interactive part.
@@ -27,8 +27,8 @@ apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 # create a script for non-root user
 cat << 'EOF' > ./script.sh
 #!/bin/bash
-#set -Eeuo pipefail
-set -Eeuxo pipefail
+set -Eeuo pipefail
+#set -Eeuxo pipefail
 
 # Create a registration token using Github REST API v3
 temp=$(curl -XPOST \
