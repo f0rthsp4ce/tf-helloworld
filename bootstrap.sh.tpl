@@ -12,12 +12,7 @@ cd ~/doact
 
 # Install dependinces
 apt-get update
-apt-get install \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release \
-    acl
+apt-get -y install ca-certificates curl gnupg lsb-release acl
 
 mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
@@ -27,7 +22,7 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 apt-get update
-apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 # create a script for non-root user
 cat << 'EOF' > ./script.sh
@@ -52,7 +47,7 @@ curl -O -L https://github.com/actions/runner/releases/download/v2.294.0/actions-
 tar xzf ./actions-runner-linux-x64-2.294.0.tar.gz
 
 # Configure the runner
-./config.sh --url https://github.com/${GITHUB_REPO_NAME} --token $REGISTRATION_TOKEN <<< $'\n\n' 
+./config.sh --url https://github.com/${GITHUB_REPO_NAME} --token $REGISTRATION_TOKEN --replace <<< $'\n\n' 
 EOF
 
 # give permission to user to access /root
