@@ -1,0 +1,3 @@
+do_token = "<digitalocean_access_token>"
+github_access_token = "<github_access_token>"
+github_repo_name    = "f0rthsp4ce/F0RTHSP4CE_BOT"
